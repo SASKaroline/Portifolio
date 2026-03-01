@@ -9,9 +9,9 @@ export default function Projects() {
     },
     {
       id: 2,
-      nome: 'Projeto em Breve',
-      descricao: 'Um novo sistema que estou desenvolvendo no meu estágio/estudos.',
-      linkGithub: 'https://github.com/SASKaroline'
+      nome: 'Projeto de leitura',
+      descricao: 'Um sistema de registro de leitura que eu criei na faculdade.',
+      linkGithub: 'https://github.com/SASKaroline/BookVerse'
     }
   ];
 
