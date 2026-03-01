@@ -1,50 +1,54 @@
-/* Reset básico para tirar margens indesejadas */
+/* --- Reset Básico --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  scroll-behavior: smooth; /* Adiciona a rolagem suave nos links */
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #1a1a1a; /* Fundo escuro */
-  color: #f0f0f0; /* Texto claro */
+  background-color: #1a0b2e; /* Fundo roxo bem escuro */
+  color: #f0e6ff; /* Texto claro com leve tom de roxo */
   line-height: 1.6;
 }
 
-/* --- Header --- */
+/* --- Header (Menu) --- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 5%;
-  background-color: #242424;
-  position: sticky; /* Faz o menu grudar no topo */
+  background-color: #2d1650; /* Roxo médio */
+  position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap; /* Permite que o menu quebre de linha em telas pequenas */
+  gap: 1rem;
 }
 
 .header h2 {
-  color: #646cff; /* Cor de destaque (roxo/azul) */
+  color: #d1b3ff; /* Roxo claro */
 }
 
 .header ul {
   display: flex;
   list-style: none;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .header a {
-  color: #f0f0f0;
+  color: #f0e6ff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .header a:hover {
-  color: #646cff;
+  color: #b377ff; /* Roxo vibrante ao passar o mouse */
 }
 
 /* --- Seções Gerais --- */
@@ -58,13 +62,15 @@ section {
 
 /* --- Sobre Mim --- */
 .about h1 {
-  font-size: 2.8rem;
+  /* A função clamp ajusta o tamanho da fonte automaticamente do PC pro celular */
+  font-size: clamp(2rem, 5vw, 2.8rem); 
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
 .about p {
-  font-size: 1.2rem;
-  color: #bbbbbb;
+  font-size: 1.1rem;
+  color: #d8c3f5;
   max-width: 600px;
   margin-bottom: 0.5rem;
 }
@@ -74,63 +80,74 @@ section {
   text-align: center;
   font-size: 2.2rem;
   margin-bottom: 3rem;
+  color: #d1b3ff;
 }
 
 .lista-projetos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Reduzi o tamanho mínimo para 250px, assim cabe perfeitamente na tela de um celular */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 2rem;
 }
 
 .card {
-  background-color: #2a2a2a;
+  background-color: #3b1d68; /* Fundo do card mais claro que o body */
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid #3a3a3a;
+  border: 1px solid #562e91;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
 }
 
 .card h3 {
   margin-bottom: 1rem;
-  color: #646cff;
+  color: #e0ccff;
 }
 
 .card p {
   margin-bottom: 1.5rem;
-  color: #cccccc;
+  color: #cbb5ea;
+  flex-grow: 1; /* Faz o botão descer sempre para o fundo do card */
 }
 
 .card a {
   display: inline-block;
+  text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #646cff;
-  padding: 0.6rem 1.2rem;
+  background-color: #7b42f6; /* Botão roxo vibrante */
+  padding: 0.8rem 1.2rem;
   border-radius: 6px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 .card a:hover {
-  background-color: #535bf2;
+  background-color: #5c2ad5;
 }
 
 /* --- Rodapé --- */
 .footer {
-  background-color: #242424;
+  background-color: #2d1650;
   text-align: center;
-  padding: 4rem 5%;
+  padding: 3rem 5%;
   margin-top: 2rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid #4a2582;
 }
 
 .footer h2 {
   margin-bottom: 1rem;
+  color: #d1b3ff;
+}
+
+.footer p {
+  color: #d8c3f5;
 }
 
 .footer .links {
@@ -138,26 +155,38 @@ section {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer .links a {
-  color: #646cff;
+  color: #b377ff;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
+  transition: color 0.3s ease;
 }
 
 .footer .links a:hover {
+  color: #d1b3ff;
   text-decoration: underline;
 }
 
-/* Responsividade para celulares */
-@media (max-width: 600px) {
+/* --- Regras de Responsividade Extra --- */
+@media (max-width: 768px) {
   .header {
     flex-direction: column;
-    gap: 1rem;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 5%;
   }
-  .about h1 {
-    font-size: 2rem;
+  
+  .header ul {
+    width: 100%;
+    padding-top: 1rem;
+  }
+
+  section {
+    padding: 3rem 5%;
+    min-height: auto; /* Tira a altura forçada no celular */
   }
 }
