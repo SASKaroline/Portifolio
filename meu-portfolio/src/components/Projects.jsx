@@ -3,14 +3,14 @@ export default function Projects() {
   const meusProjetos = [
     {
       id: 1,
-      nome: 'Meu Primeiro Portfólio',
-      descricao: 'Portfólio desenvolvido em React para apresentar minhas habilidades e projetos como desenvolvedora.',
-      linkGithub: 'https://github.com/SASKaroline/Portifolio'
+      nome: 'Meu Primeiro Projeto',
+      descricao: 'Projeto desenvolvido em HTML/CSS de um site de leitura criado no 1° semestre da faculdade.',
+      linkGithub: 'https://github.com/SASKaroline/Roadkesbo-Final'
     },
     {
       id: 2,
       nome: 'Projeto de leitura',
-      descricao: 'Um sistema de registro de leitura que eu criei na faculdade.',
+      descricao: 'Um aplicativo mobile de registro de leitura que eu criei na faculdade.',
       linkGithub: 'https://github.com/SASKaroline/BookVerse'
     }
   ];

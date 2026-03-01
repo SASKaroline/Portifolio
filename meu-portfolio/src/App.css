@@ -1,119 +1,270 @@
+/* --- 1. Importação de Fontes Profissionais do Google --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap');
+
 /* --- Reset Básico --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   scroll-behavior: smooth;
 }
 
+/* Fundo com um gradiente radial escuro e elegante */
 body {
-  background-color: #1a0b2e; /* Fundo roxo bem escuro */
-  color: #f0e6ff; /* Texto claro com leve tom de roxo */
-  line-height: 1.6;
+  background: radial-gradient(circle at top left, #231042, #11051f 50%, #0a0214 100%);
+  color: #e0d4f5;
+  font-family: 'Inter', sans-serif; /* Fonte limpa para textos */
+  line-height: 1.7;
+  min-height: 100vh;
 }
 
-/* --- Header (Menu) --- */
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif; /* Fonte moderna para títulos */
+}
+
+/* --- Efeito de Gradiente nos Textos de Destaque --- */
+.highlight {
+  background: linear-gradient(90deg, #d1b3ff, #7b42f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* --- Header (Menu Efeito Vidro) --- */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 5%;
-  background-color: #2d1650; /* Roxo médio */
-  position: sticky;
+  padding: 1.2rem 1.5rem;
+  background: rgba(17, 5, 31, 0.7); /* Transparente */
+  backdrop-filter: blur(12px); /* Desfoque do fundo */
+  position: sticky; 
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  flex-wrap: wrap; /* Permite que o menu quebre de linha em telas pequenas */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .header h2 {
-  color: #d1b3ff; /* Roxo claro */
+  margin: 0;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .header ul {
   display: flex;
   list-style: none;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .header a {
-  color: #f0e6ff;
+  color: #cbb5ea;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
 .header a:hover {
-  color: #b377ff; /* Roxo vibrante ao passar o mouse */
+  color: #fff;
+  text-shadow: 0 0 10px rgba(179, 119, 255, 0.5);
 }
 
-/* --- Seções Gerais --- */
+.menu-icon {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu-icon:hover {
+  color: #b377ff;
+}
+
+/* --- Animação de Entrada --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 section {
-  padding: 4rem 5%;
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 5rem 5%;
+  min-height: auto;
+  animation: fadeUp 1s ease-out forwards;
 }
 
 /* --- Sobre Mim --- */
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1.6;
+}
+
 .about h1 {
-  /* A função clamp ajusta o tamanho da fonte automaticamente do PC pro celular */
-  font-size: clamp(2rem, 5vw, 2.8rem); 
-  margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.5rem); 
+  margin-bottom: 1.2rem;
   color: #ffffff;
+  line-height: 1.2;
 }
 
 .about p {
-  font-size: 1.1rem;
-  color: #d8c3f5;
-  max-width: 600px;
-  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  color: #c0aee0;
+  margin-bottom: 1.5rem;
 }
 
-/* --- Projetos --- */
-.projects h2 {
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 50%;
+  border: 4px solid rgba(123, 66, 246, 0.3);
+  box-shadow: 0 0 40px rgba(123, 66, 246, 0.2);
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+/* --- Títulos das Seções --- */
+h2 {
   text-align: center;
-  font-size: 2.2rem;
-  margin-bottom: 3rem;
-  color: #d1b3ff;
+  font-size: 2.5rem;
+  margin-bottom: 3.5rem;
+  color: #ffffff;
 }
 
-.lista-projetos {
-  display: grid;
-  /* Reduzi o tamanho mínimo para 250px, assim cabe perfeitamente na tela de um celular */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+/* --- Experiência Profissional --- */
+.timeline {
+  max-width: 850px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
+.timeline-item {
+  background: rgba(255, 255, 255, 0.03); /* Fundo Glassmorphism */
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 6px solid #7b42f6;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.timeline-item h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-item .company {
+  color: #b377ff;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.timeline-item ul {
+  list-style-position: inside;
+  color: #c0aee0;
+}
+
+.timeline-item li {
+  margin-bottom: 0.8rem;
+}
+
+/* --- Habilidades (Skills) --- */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-badge {
+  background: rgba(123, 66, 246, 0.1);
+  color: #e0d4f5;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px; /* Pílulas bem arredondadas */
+  font-weight: 500;
+  border: 1px solid rgba(123, 66, 246, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.skill-badge:hover {
+  background: #7b42f6;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(123, 66, 246, 0.3);
+}
+
+/* --- Projetos --- */
+.lista-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
 .card {
-  background-color: #3b1d68; /* Fundo do card mais claro que o body */
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #562e91;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(123, 66, 246, 0.4); /* Borda acende ao passar o mouse */
 }
 
 .card h3 {
   margin-bottom: 1rem;
-  color: #e0ccff;
+  color: #ffffff;
+  font-size: 1.4rem;
 }
 
 .card p {
-  margin-bottom: 1.5rem;
-  color: #cbb5ea;
-  flex-grow: 1; /* Faz o botão descer sempre para o fundo do card */
+  margin-bottom: 2rem;
+  color: #c0aee0;
+  flex-grow: 1;
 }
 
 .card a {
@@ -121,72 +272,184 @@ section {
   text-align: center;
   text-decoration: none;
   color: white;
-  background-color: #7b42f6; /* Botão roxo vibrante */
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(135deg, #7b42f6, #5c2ad5);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity 0.3s ease;
 }
 
 .card a:hover {
-  background-color: #5c2ad5;
+  opacity: 0.9;
+}
+
+/* --- Comunidade SomoS_Tech --- */
+.community-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.community-text-box {
+  flex: 1.2; 
+}
+
+.community-text-box h2 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.community-text-box p {
+  color: #c0aee0;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.community-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.community-links .btn-primary {
+  background: linear-gradient(135deg, #7b42f6, #5c2ad5);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.community-links .btn-secondary {
+  background: transparent;
+  color: #b377ff;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #b377ff;
+  transition: all 0.3s ease;
+}
+
+.community-links .btn-secondary:hover {
+  background: rgba(179, 119, 255, 0.1);
+}
+
+.community-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.community-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* --- Rodapé --- */
 .footer {
-  background-color: #2d1650;
   text-align: center;
-  padding: 3rem 5%;
+  padding: 4rem 5%;
   margin-top: 2rem;
-  border-top: 1px solid #4a2582;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .footer h2 {
+  font-size: 2rem;
   margin-bottom: 1rem;
-  color: #d1b3ff;
 }
 
 .footer p {
-  color: #d8c3f5;
+  color: #c0aee0;
 }
 
 .footer .links {
   margin-top: 1.5rem;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
 .footer .links a {
   color: #b377ff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .footer .links a:hover {
-  color: #d1b3ff;
-  text-decoration: underline;
+  color: #fff;
 }
 
-/* --- Regras de Responsividade Extra --- */
-@media (max-width: 768px) {
+/* --- Responsividade Extra --- */
+@media (max-width: 850px) {
   .header {
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem 5%;
+    flex-direction: row; 
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    position: sticky; 
+    top: 0;
+    z-index: 100;
   }
   
-  .header ul {
-    width: 100%;
-    padding-top: 1rem;
+  /* Mostra o botão hambúrguer no celular */
+  .menu-icon {
+    display: block;
   }
 
-  section {
-    padding: 3rem 5%;
-    min-height: auto; /* Tira a altura forçada no celular */
+  /* Transforma a lista de links na gaveta escondida */
+  .header nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(20, 7, 39, 0.98); /* Fundo escuro para a gaveta */
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    max-height: 0; /* Começa com altura zero (fechada) */
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease; /* Animação suave de descida */
+  }
+
+  /* Quando a classe .open é ativada pelo React, a gaveta desce */
+  .header nav ul.open {
+    max-height: 400px;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(123, 66, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Deixa os links um pouco maiores para facilitar o clique com o dedo */
+  .header a {
+    font-size: 1.2rem; 
+  }
+  
+  .about-content, .community-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .community-text-box h2 {
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 250px;
+  }
+
+  .community-links {
+    justify-content: center;
   }
 }
